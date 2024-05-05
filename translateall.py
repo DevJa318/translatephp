@@ -1,3 +1,23 @@
+#!/bin/env python
+
+"""
+This program translate php and txt files with english languege version to polish language.
+
+input:
+	files_list variable - txt file with list of files to translate
+	ie:
+	./en/letters/reg_verify.txt
+	./en/stopwords/stopwords.php
+	./en/functions.php
+	./en/controllers/redirect/redirect.php
+	./en/controllers/wysiwygs/wysiwygs.php
+	./en/controllers/sitemap/sitemap.php
+
+
+output:
+	it creates new translated to polish files within new ./pl directory 
+"""
+
 from deep_translator import GoogleTranslator
 from pathlib import Path
 import os 
@@ -7,7 +27,6 @@ def translation(to_translate):
 	translated = GoogleTranslator(source='auto',
 		target='pl').translate(to_translate)
 	return translated
-
 
 with open('/home/devja/Dokumenty/PROG2023/tlumacz/allfiles.txt', 'r') as ffiles:
 	for ffile in ffiles:
